@@ -2,7 +2,7 @@
   "name": "smart",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/js/index.js",
   "dependencies": {
     "lodash": "^4.17.15"
   },
@@ -10,7 +10,7 @@
     "electron": "^7.1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "keywords": [],
   "author": "",

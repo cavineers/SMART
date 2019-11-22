@@ -2,28 +2,65 @@ import { app, BrowserWindow } from "electron";
 let url = require("url");
 let path = require("path");
 
-let win: BrowserWindow;
+enum ListenerType {
+    Ready = 0
+}
 
-app.on("ready", () => {
-    win = new BrowserWindow({
-        darkTheme: true,
-        width: 1000,
-        height: 800
-    });
-    win.loadURL(
-        url.format({
-            pathname: path.join(__dirname, "..", "html", "index.html"),
-            protocol: "file:",
-            slashes: true
-        })
-    );
-    win.setResizable(true);
-    win.setMaximizable(true);
-    win.maximize();
-    win.setMenu(null);
-    win.on("closed", function() {
-        win = null;
-    });
+class ElectronWindow {
+    public win: BrowserWindow;
+    private listener_ready: any;
+    constructor() {
+        app.on("ready", () => {
+            this.win = new BrowserWindow({
+                darkTheme: true,
+                width: 1000,
+                height: 800,
+                resizable: true,
+                maximizable: true
+            });
+            // Defaults
+            this.win.setMenu(null);
+            this.hide();
+            this.maximize();
 
-    app.setBadgeCount(1);
-});
+            // Load Page
+            this.win.loadURL(
+                url.format({
+                    pathname: path.join(__dirname, "..", "html", "index.html"),
+                    protocol: "file:",
+                    slashes: true
+                })
+            );
+
+            // Closed event listener
+            this.win.on("closed", function() {
+                this.win = null;
+            });
+
+            // app.setBadgeCount(1);
+            this.listener_ready();
+        });
+    }
+
+    on(listener: ListenerType, func: any): void {
+        this.listener_ready = func;
+    }
+
+    show(): void {
+        this.win.show();
+    }
+
+    hide(): void {
+        this.win.hide();
+    }
+
+    maximize(): void {
+        this.win.maximize();
+    }
+
+    minimize(): void {
+        this.win.minimize();
+    }
+}
+
+export { ElectronWindow, ListenerType as WindowClassListenerType };

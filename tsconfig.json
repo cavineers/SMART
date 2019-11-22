@@ -3,10 +3,9 @@
         "target": "esnext",
         "watch": true,
         "lib": ["dom", "es2017"],
-        "types": [
-            "./node_modules/electron"
-        ],
+        "types": ["./node_modules/electron"],
         "outDir": "dist/js",
-        "rootDir": "src"
+        "rootDir": "src",
+        "module": "esnext"
     }
 }
