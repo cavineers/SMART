@@ -1,30 +1,28 @@
-import { BrowserWindow } from "electron";
-import * as path from "path";
-
-export default class EWindow {
-    static mainWindow: Electron.BrowserWindow;
-    static application: Electron.App;
-    static BrowserWindow;
-    private static onWindowAllClosed() {
+"use strict";
+exports.__esModule = true;
+var path = require("path");
+var EWindow = (function () {
+    function EWindow() {
+    }
+    EWindow.onWindowAllClosed = function () {
         if (process.platform !== "darwin") {
             EWindow.application.quit();
         }
-    }
-
-    private static onClose() {
+    };
+    EWindow.onClose = function () {
         EWindow.mainWindow = null;
-    }
-
-    private static onReady() {
+    };
+    EWindow.onReady = function () {
         EWindow.mainWindow = new EWindow.BrowserWindow({ width: 800, height: 600, webPreferences: { nodeIntegration: true } });
         EWindow.mainWindow.loadURL(path.join(__dirname, "index.html"));
         EWindow.mainWindow.on("closed", EWindow.onClose);
-    }
-
-    static main(app: Electron.App, browserWindow: typeof BrowserWindow) {
+    };
+    EWindow.main = function (app, browserWindow) {
         EWindow.BrowserWindow = browserWindow;
         EWindow.application = app;
         EWindow.application.on("window-all-closed", EWindow.onWindowAllClosed);
         EWindow.application.on("ready", EWindow.onReady);
-    }
-}
+    };
+    return EWindow;
+}());
+exports["default"] = EWindow;

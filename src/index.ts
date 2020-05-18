@@ -9,19 +9,15 @@
 console.clear();
 
 //  Imports
-let CONSTANTS = require("./Constants");
-let { ElectronWindow, WindowClassListenerType } = require("./window");
+import Constants from "./Constants";
+import EWindow from "./window";
+import { app, BrowserWindow } from "electron";
 
 // Initial Console Echo
-console.log(`Starting ${CONSTANTS.name.short}`);
+console.log(`Starting ${Constants.app_name.short}`);
 
 // Global Variables
 let k_window: any;
 
-// Instantiate
-k_window = new ElectronWindow();
-
-// On complete
-k_window.on(WindowClassListenerType.Ready, () => {
-    k_window.show();
-});
+// New window
+EWindow.main(app, BrowserWindow);

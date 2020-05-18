@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-        "target": "esnext",
+        "target": "es3",
         "watch": true,
         "lib": ["dom", "es2017"],
         "types": ["./node_modules/electron"],
-        "outDir": "dist/js",
+        "outDir": "dist",
         "rootDir": "src",
-        "module": "esnext"
+        "removeComments": true,
+        "noImplicitAny": false
     }
 }
