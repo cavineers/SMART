@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "watch": true,
+        "lib": ["dom", "es2017"],
+        "removeComments": true,
+        "rootDir": "src",
+        "outDir": "dist",
+        "resolveJsonModule": true
+    }
+}

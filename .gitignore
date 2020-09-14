@@ -1,0 +1,13 @@
+# .gitignore
+
+## Node Modules
+node_modules/
+
+## Env Vars
+.env
+
+## Config files
+/config/*.env
+
+## Database
+db/
