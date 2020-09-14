@@ -8,5 +8,10 @@
         "**/node_modules": true,
         "**/dist": true,
         "**/.vscode": true
-    }
+    },
+    "cSpell.words": [
+        "Strat",
+        "resave",
+        "timestring"
+    ]
 }
