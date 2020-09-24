@@ -1,6 +1,16 @@
-import { Collection } from "discord.js";
-import User from "./_/User";
+import { Permission, PermissionsList } from "permissions-lib";
 
 export default class DB {
-    public users: Collection<String, User> = new Collection<String, User>();
+    private m_permList: PermissionsList = new PermissionsList();
+
+    constructor() {
+        // Configure user permissions manager
+        this.m_permList
+            // User Roles
+            .add(new Permission("dev", false))
+            .add(new Permission("admin", false, ["dev"]))
+            .add(new Permission("member", true, ["admin"]))
+            // Other perms
+            .add(new Permission("example", true, ["dev", "admin", "member"]));
+    }
 }
