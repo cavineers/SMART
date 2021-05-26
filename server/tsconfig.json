@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "outDir": "../server/JS",
+      "rootDir": "../server/",
+      "module": "commonJS",
+    }
+  }

@@ -12,3 +12,13 @@ node_modules/
 
 ## Database
 db/
+
+## JS files (only to be included on build)
+server/JS/
+public/JS/
+
+## Built Directory
+out/
+
+## MacOS
+.DS_Store

@@ -1,34 +1,80 @@
 {
-  "name": "smart",
-  "version": "0.0.1",
-  "description": "",
-  "main": "dist/Index.js",
-  "scripts": {
-    "start": "node dist/Index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cavineers/SMART.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cavineers/SMART/issues"
-  },
-  "homepage": "https://github.com/cavineers/SMART#readme",
-  "dependencies": {
-    "@types/node": "^14.10.1",
-    "cuid": "^2.1.8",
-    "discord.js": "^12.3.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "http": "0.0.1-security",
-    "moment": "^2.27.0",
-    "passport": "^0.4.1",
-    "socket.io": "^2.3.0",
-    "timestring": "^6.0.0",
-    "permissions-lib": "github:topmastered/PermissionsLib"
-  }
+    "name": "smart",
+    "version": "1.0.0",
+    "description": "The Super Machine Learning/Artificial Intelligent Robot Tracker.",
+    "main": "./server/JS/index.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "dev": "concurrently -n 'tsc-server,tsc-client,server' -c 'white.dim,white.dim,bold' 'npm run tsc-server' 'npm run tsc-public' 'npm start'",
+        "tsc-checkServer": "cd server && tsc",
+        "tsc-checkClient": "cd public && tsc",
+        "tsc-server": "cd server && tsc -w",
+        "tsc-public": "cd public && tsc -w",
+        "build": "npm run tsc-checkServer && npm run tsc-checkClient && git add -f public/JS && git add -f server/JS",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "make-mac": "electron-forge make --platform darwin --target dmg",
+        "make-win": "electron-forge make --platform win32"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cavineers/SMART.git"
+    },
+    "author": "Ryan Bode",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/cavineers/SMART/issues"
+    },
+    "homepage": "https://github.com/cavineers/SMART#readme",
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.57",
+        "@electron-forge/maker-deb": "^6.0.0-beta.57",
+        "@electron-forge/maker-dmg": "*",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+        "@electron-forge/maker-zip": "^6.0.0-beta.57",
+        "@typescript-eslint/eslint-plugin": "^4.25.0",
+        "@typescript-eslint/parser": "^4.25.0",
+        "concurrently": "^6.2.0",
+        "electron": "^13.0.1",
+        "eslint": "^7.27.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.23.3",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.23.2",
+        "typescript": "^4.2.4"
+    },
+    "dependencies": {
+        "electron-reload": "^1.5.0",
+        "electron-squirrel-startup": "^1.0.0"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [{
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "smart"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-dmg",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ]
+        }
+    }
 }

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "outDir": "../public/JS",
+      "rootDir": "../public/TS",
+      "allowJs": true,
+      "checkJs": false,
+      "allowSyntheticDefaultImports": true,
+      "module": "es2020",
+      "skipLibCheck": true,
+      "moduleResolution": "node",
+      "lib": ["ES2020", "dom", "es5", "WebWorker", "WebWorker.ImportScripts"]
+    },
+    "linterOptions": {
+      "exclude": ["../public/TS"]
+    }
+  }
