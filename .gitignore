@@ -10,9 +10,6 @@ node_modules/
 /config/*.env
 !/config/example.env
 
-## Database
-db/
-
 ## JS files (only to be included on build)
 server/JS/
 public/JS/
@@ -22,3 +19,6 @@ out/
 
 ## MacOS
 .DS_Store
+
+## Ignore Database Files.
+database/**/
