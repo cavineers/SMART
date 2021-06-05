@@ -16,10 +16,7 @@
         "make-mac": "electron-forge make --platform darwin --target dmg",
         "make-win": "electron-forge make --platform win32"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/cavineers/SMART.git"
-    },
+    "repository": "git+https://github.com/cavineers/SMART.git",
     "author": "Ryan Bode",
     "license": "Apache-2.0",
     "bugs": {
@@ -33,10 +30,10 @@
         "@electron-forge/maker-rpm": "^6.0.0-beta.57",
         "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
         "@electron-forge/maker-zip": "^6.0.0-beta.57",
-        "@typescript-eslint/eslint-plugin": "^4.25.0",
-        "@typescript-eslint/parser": "^4.25.0",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
         "concurrently": "^6.2.0",
-        "electron": "^13.0.1",
+        "electron": "^13.1.1",
         "eslint": "^7.27.0",
         "eslint-config-airbnb": "^18.2.1",
         "eslint-config-prettier": "^8.3.0",
