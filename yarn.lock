@@ -197,7 +197,7 @@
   optionalDependencies:
     electron-installer-debian "^3.0.0"
 
-"@electron-forge/maker-dmg@*":
+"@electron-forge/maker-dmg@^6.0.0-beta.57":
   version "6.0.0-beta.57"
   resolved "https://registry.yarnpkg.com/@electron-forge/maker-dmg/-/maker-dmg-6.0.0-beta.57.tgz#eb6595fe662d6c06fcae088c0a13323c420d6bba"
   integrity sha512-fGZ5MOqG66wKmkjdJl/SQe8Xgf1bxRSE5NUBoqmxKFrbhqUrl+FMMTxuXf1ugAFgHzw2ptFFVlKFiXmpVCPAgA==
